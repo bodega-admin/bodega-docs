@@ -1,3 +1,3 @@
 # bodega-docs
 
-Bodega Market
+Bodega Market Docs
