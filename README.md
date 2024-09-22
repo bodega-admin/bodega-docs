@@ -24,40 +24,101 @@ Consider a prediction market for the 2024 US election:
    - Trump: 40% ($100)
    - Kamala: 60% ($150)
 
-### Selling Positions
+To calculate the new prices of each position in a prediction market after a trade, you can use the **Logarithmic Market Scoring Rule (LMSR)**, a popular automated market-making algorithm proposed by Robin Hanson. This model adjusts prices based on the total number of shares (or the total investment) in each outcome.
 
-### Formula Calculating Selling Position
+### **Key Components:**
 
-```math
-\text{Position Value}_t = \frac{M}{\text{Total Pool Size}_t} \times \text{Total Pool Value}_t
-```
-
-Where:
-- **\( M \)**: Your initial investment (the capital you contributed to the Position).
-- **\( \text{Total Pool Size}_t \)**: The total number of shares in the pool at time \( t \) (sum of all participants' contributions).
-- **\( \text{Total Pool Value}_t \)**: The total value of the liquidity pool, including net inflows from other participants.
-
-### Example of How Profits Work
-
-Alice enter the position first with **$50**, and the total pool value at that time is also **$50**. Kamala share of the pool is:
+- **Cost Function \( C(q) \):**
 
 ```math
-\frac{50}{50} = 1 \, \text{(or 100% of the pool)}
+  C(q) = b \cdot \ln\left(\sum_{i} e^{\frac{q_i}{b}}\right)
 ```
 
-Now, Bob each invest **$50**, the total pool size becomes **$150** (Alice's $100 + Bob's $50). Since the pool value has increased, Alice share is now:
+  - \( q_i \): Total number of shares in outcome \( i \).
+  - \( b \): Liquidity parameter (controls the market's sensitivity to trades).
+
+- **Price Function \( p_i \):**
 
 ```math
-\frac{100}{150} = 0.67 \, \text{(or 67% of the pool)}
+  p_i = \frac{e^{\frac{q_i}{b}}}{\sum_{j} e^{\frac{q_j}{b}}}
 ```
 
-However, because the **total pool value** is now **$150**, Alice's position value if she sold is:
+  - \( p_i \): Price (probability) of outcome \( i \).
+  - The denominator sums over all possible outcomes \( j \).
+
+### **Calculating New Prices:**
+
+1. **Initial State:**
+
+   - Assume initial quantities \( q_{\text{yes}} = q_{\text{no}} = 0 \).
+   - Initial prices are:
+```math
+     p_{\text{yes}} = p_{\text{no}} = \frac{1}{2}
+```
+
+2. **After Purchasing Shares:**
+
+   - Suppose a trader buys \( \Delta q_{\text{yes}} \) shares of "Yes".
+   - Update the total quantity:
+```math
+     q_{\text{yes}}' = q_{\text{yes}} + \Delta q_{\text{yes}}
+```
+   - New prices are:
+```math
+     p_{\text{yes}}' = \frac{e^{\frac{q_{\text{yes}}'}{b}}}{e^{\frac{q_{\text{yes}}'}{b}} + e^{\frac{q_{\text{no}}}{b}}}
+```
+```math
+     p_{\text{no}}' = \frac{e^{\frac{q_{\text{no}}}{b}}}{e^{\frac{q_{\text{yes}}'}{b}} + e^{\frac{q_{\text{no}}}{b}}}
+```
+   - Since \( q_{\text{no}} \) remains the same, only \( q_{\text{yes}} \) changes.
+
+### **Example Calculation:**
+
+- **Given:**
+  - Trader buys \( \Delta q_{\text{yes}} = 100 \) shares.
+  - Choose \( b = 50 \) (you can adjust \( b \) based on desired liquidity).
+- **Compute New Prices:**
+  - Update quantity:
+
+    q_{\text{yes}}' = 0 + 100 = 100
+```
+  - Calculate exponentials:
+```math
+    e^{\frac{100}{50}} = e^{2} \approx 7.389
+```
+```math
+    e^{\frac{0}{50}} = e^{0} = 1
+```
+  - New prices:
+```math
+    p_{\text{yes}}' = \frac{7.389}{7.389 + 1} \approx 0.881
+```
+```math
+    p_{\text{no}}' = \frac{1}{7.389 + 1} \approx 0.119
+```
+
+### **General Formula:**
+
+For any number of outcomes, after updating the quantities \( q_i \), the new price for each outcome \( i \) is:
 
 ```math
-\text{Position Value}_t = 0.67 \times 150 = $100.5
+p_i = \frac{e^{\frac{q_i}{b}}}{\sum_{j} e^{\frac{q_j}{b}}}
 ```
 
+### **Notes:**
 
+- **Liquidity Parameter \( b \):** A larger \( b \) makes the market less sensitive to trades (prices change less with each trade).
+- **Cost of Shares:** The cost to purchase \( \Delta q_i \) shares is the increase in the cost function:
+```math
+  \text{Cost} = C(q_i + \Delta q_i, q_{-i}) - C(q_i, q_{-i})
+```
+  - \( q_{-i} \): Quantities of all other outcomes.
+
+
+More info on **Logarithmic Market Scoring Rule (LMSR)**
+[]!(https://www.cultivatelabs.com/crowdsourced-forecasting-guide/how-does-logarithmic-market-scoring-rule-lmsr-work)
+[]!(https://learn.microsoft.com/en-us/archive/msdn-magazine/2016/june/test-run-introduction-to-prediction-markets)
+[]!(https://docs.gnosis.io/conditionaltokens/docs/introduction3/)
 ### Payout Calculation
 
 If Kamala wins the 2024 election:
