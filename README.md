@@ -79,7 +79,7 @@ To calculate the new prices of each position in a prediction market after a trad
   - Choose \( b = 50 \) (you can adjust \( b \) based on desired liquidity).
 - **Compute New Prices:**
   - Update quantity:
-
+```math
     q_{\text{yes}}' = 0 + 100 = 100
 ```
   - Calculate exponentials:
@@ -116,9 +116,9 @@ p_i = \frac{e^{\frac{q_i}{b}}}{\sum_{j} e^{\frac{q_j}{b}}}
 
 
 More info on **Logarithmic Market Scoring Rule (LMSR)**
-[]!(https://www.cultivatelabs.com/crowdsourced-forecasting-guide/how-does-logarithmic-market-scoring-rule-lmsr-work)
-[]!(https://learn.microsoft.com/en-us/archive/msdn-magazine/2016/june/test-run-introduction-to-prediction-markets)
-[]!(https://docs.gnosis.io/conditionaltokens/docs/introduction3/)
+https://www.cultivatelabs.com/crowdsourced-forecasting-guide/how-does-logarithmic-market-scoring-rule-lmsr-work <br>
+https://learn.microsoft.com/en-us/archive/msdn-magazine/2016/june/test-run-introduction-to-prediction-markets  <br>
+https://docs.gnosis.io/conditionaltokens/docs/introduction3/  <br>
 ### Payout Calculation
 
 If Kamala wins the 2024 election:
