@@ -115,9 +115,12 @@ p_i = \frac{e^{\frac{q_i}{b}}}{\sum_{j} e^{\frac{q_j}{b}}}
   - \( q_{-i} \): Quantities of all other outcomes.
 
 
-More info on **Logarithmic Market Scoring Rule (LMSR)**
+More info on **Logarithmic Market Scoring Rule (LMSR)** <br>
+
 https://www.cultivatelabs.com/crowdsourced-forecasting-guide/how-does-logarithmic-market-scoring-rule-lmsr-work <br>
+
 https://learn.microsoft.com/en-us/archive/msdn-magazine/2016/june/test-run-introduction-to-prediction-markets  <br>
+
 https://docs.gnosis.io/conditionaltokens/docs/introduction3/  <br>
 ### Payout Calculation
 
