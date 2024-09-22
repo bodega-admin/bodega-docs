@@ -26,14 +26,37 @@ Consider a prediction market for the 2024 US election:
 
 ### Selling Positions
 
-To calculate the selling price of a position:
-```
-Original investment * (Current probability / Buy-in probability)
+### Formula Calculating Selling Position
+
+```math
+\text{Position Value}_t = \frac{M}{\text{Total Pool Size}_t} \times \text{Total Pool Value}_t
 ```
 
-Example:
-- Alice selling Kamala shares: $50 * (60% / 33%) ≈ $90.91
-- Bob selling Trump shares: $100 * (40% / 99%) ≈ $40.4
+Where:
+- **\( M \)**: Your initial investment (the capital you contributed to the Position).
+- **\( \text{Total Pool Size}_t \)**: The total number of shares in the pool at time \( t \) (sum of all participants' contributions).
+- **\( \text{Total Pool Value}_t \)**: The total value of the liquidity pool, including net inflows from other participants.
+
+### Example of How Profits Work
+
+Alice enter the position first with **$50**, and the total pool value at that time is also **$50**. Kamala share of the pool is:
+
+```math
+\frac{50}{50} = 1 \, \text{(or 100% of the pool)}
+```
+
+Now, Bob each invest **$50**, the total pool size becomes **$150** (Alice's $100 + Bob's $50). Since the pool value has increased, Alice share is now:
+
+```math
+\frac{100}{150} = 0.67 \, \text{(or 67% of the pool)}
+```
+
+However, because the **total pool value** is now **$150**, Alice's position value if she sold is:
+
+```math
+\text{Position Value}_t = 0.67 \times 150 = $100.5
+```
+
 
 ### Payout Calculation
 
