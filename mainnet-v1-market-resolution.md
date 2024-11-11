@@ -32,4 +32,4 @@ This bet is in ADA, similar to the SNEK bet. There is 48 hours to place your bet
 
 This bet should be resolved by November 16th.&#x20;
 
-**In the event of a tie,** the tiebreaker will first go to the person who was chosen to win the first round of the fight, based on a majority decision from the judges. In the event the first round is also deemed a tie, the next tiebreaker will be whoever landed the most punches in that round. If this is also a tie, then this pattern will continue into following rounds.&#x20;
+**In the event of a tie,** the tiebreaker will first go to the person who was chosen to win the first round of the fight, based on a majority decision from the judges. In the event the first round is also deemed a tie, the next tiebreaker will be whoever landed the most total punches. If this is also a tie, then this pattern will continue into following rounds.&#x20;
