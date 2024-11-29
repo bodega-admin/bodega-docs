@@ -28,7 +28,7 @@ Target price of SNEK must surpass 0.0041 ADA, and will be based on the prices on
 
 **Mike Tyson vs. Jake Paul**
 
-This bet is in ADA, similar to the SNEK bet. There is 48 hours to place your bet.
+This bet is in ADA, similar to the SNEK bet. The betting window is open for approximately 4 days.&#x20;
 
 This bet should be resolved by November 16th.&#x20;
 
