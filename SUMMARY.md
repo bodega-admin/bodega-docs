@@ -12,3 +12,4 @@
 * [Testnet Guide](testnet-guide.md)
 * [Roadmap](roadmap.md)
 * [Terms & Conditions](terms-and-conditions.md)
+* [Privacy Policy](privacy-policy.md)
