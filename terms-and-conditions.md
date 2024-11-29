@@ -1,7 +1,5 @@
 # Terms & Conditions
 
-`DRAFT` BODEGA LABS
-
 ## Terms and Conditions for Bodega Market on Cardano
 
 **Last Updated: November 26, 2024**
