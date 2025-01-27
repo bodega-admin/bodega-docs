@@ -23,6 +23,8 @@ Rewards for stakers come from the fees collected by the protocol. These fees are
 
 > **Note**: The fee distribution ratio can vary depending on the total amount of fees collected during a period. Adjustments to this ratio are at the discretion of the protocol’s governance.
 
+> **IMPORTANT:** Rewards distribution may be invalidated for users whose staked token amount at the time of the snapshot is higher than their live staked amount.
+
 #### Snapshot Details
 
 The snapshot captures:
