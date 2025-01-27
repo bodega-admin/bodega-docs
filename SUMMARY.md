@@ -1,9 +1,10 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Protocol](<README (1).md>)
+* [Protocol](protocol.md)
 * [View Smart Contracts](view-smart-contracts.md)
 * [Features](features.md)
+* [Staking](staking.md)
 * [Mainnet V1 Security Assumptions](mainnet-v1-security-assumptions.md)
 * [Mainnet V1 Market Resolution](mainnet-v1-market-resolution.md)
 * [Payout Support and Troubleshooting](payout-support-and-troubleshooting.md)
